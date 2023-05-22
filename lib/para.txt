@@ -1,0 +1,14 @@
+Color maleCardColor = inActiveCardColor;
+  Color femaleCardColor = inActiveCardColor;
+
+  void genderSelected(Gender selectedGender) {
+    setState(() {
+      if(selectedGender == Gender.male) {
+        maleCardColor = activeCardColor;
+        femaleCardColor = inActiveCardColor;
+      }else {
+        femaleCardColor = activeCardColor;
+        maleCardColor = inActiveCardColor;
+      }
+    });
+  }
