@@ -5,7 +5,8 @@ class IconContent extends StatelessWidget {
  final IconData iconData;
  final String label;
 
- IconContent({required this.iconData, required this.label});
+  // ignore: prefer_const_constructors_in_immutables
+  IconContent({super.key, required this.iconData, required this.label});
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +16,9 @@ class IconContent extends StatelessWidget {
         Icon(
         iconData,
         size: 65,
-        color: Color(0xFF868892),
+        color: const Color(0xFF868892),
       ),
-      SizedBox(
+      const SizedBox(
         height: 10,
       ),
       Text(
