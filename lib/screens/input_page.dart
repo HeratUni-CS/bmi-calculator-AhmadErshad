@@ -1,5 +1,3 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../components/icon_content.dart';
@@ -8,6 +6,7 @@ import '../constants.dart';
 import 'result_page.dart';
 import '../components/bottom_button.dart';
 import '../components/round_icon_button.dart';
+import '../bmi_brain.dart';
   
 
   enum Gender{
@@ -199,12 +198,13 @@ class _InputPageState extends State<InputPage> {
           ),
           BottomButton(
             onPressed: () {
+              BMIBrain bmiBrain = BMIBrain(height: height, weight: weight);
               Navigator.push(context, 
               MaterialPageRoute(builder: (context) {
                 return ResultsPage(
-                  result: 'Normal',
-                  bmi: '30',
-                  interpretation: 'You are good to go',
+                  result: bmiBrain.getResult(),
+                  bmi: bmiBrain.getBMI(),
+                  interpretation: bmiBrain.getInterpretation(),
                 );
               },
               ),
