@@ -1,9 +1,15 @@
 import 'package:bmi_starting/constants.dart';
-import 'package:bmi_starting/reuseable_widget.dart';
+import 'package:bmi_starting/components/reuseable_widget.dart';
 import 'package:flutter/material.dart';
+import '../components/bottom_button.dart';
 
+// ignore: must_be_immutable
 class ResultsPage extends StatelessWidget {
-  const ResultsPage({super.key});
+  String result;
+  String bmi;
+  String interpretation;
+
+  ResultsPage({super.key, required this.result, required this.bmi, required this.interpretation});
 
 
   @override
@@ -31,25 +37,32 @@ class ResultsPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: const [
+                children: [
                   Text(
-                    "Normal",
+                    result,
                     style: kResultTextStyle,
                     textAlign: TextAlign.center,
                   ),
                   Text(
-                    "25",
+                    bmi,
                     style: kBMITextStyle,
                     textAlign: TextAlign.center,
                   ),
                   Text(
-                    "You are good to go",
+                    interpretation,
                     textAlign: TextAlign.center,
                     style: kBodyTextStyle,
                   ),
                 ],
               )
-            ))
+            ),
+            ),
+            BottomButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              label: 'RECALCULTE',
+            ),
         ],
       ),
     );

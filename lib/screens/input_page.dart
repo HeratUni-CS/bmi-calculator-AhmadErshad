@@ -2,12 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'icon_content.dart';
-import 'reuseable_widget.dart';
-import 'constants.dart';
+import '../components/icon_content.dart';
+import '../components/reuseable_widget.dart';
+import '../constants.dart';
 import 'result_page.dart';
-import 'bottom_button.dart';
-import 'round_icon_button.dart';
+import '../components/bottom_button.dart';
+import '../components/round_icon_button.dart';
   
 
   enum Gender{
@@ -201,7 +201,11 @@ class _InputPageState extends State<InputPage> {
             onPressed: () {
               Navigator.push(context, 
               MaterialPageRoute(builder: (context) {
-                return const ResultsPage();
+                return ResultsPage(
+                  result: 'Normal',
+                  bmi: '30',
+                  interpretation: 'You are good to go',
+                );
               },
               ),
               );

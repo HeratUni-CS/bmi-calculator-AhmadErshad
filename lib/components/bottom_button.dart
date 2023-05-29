@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'constants.dart';
+import '../constants.dart';
 // ignore: must_be_immutable
 class BottomButton extends StatelessWidget {
   void Function() onPressed; 
